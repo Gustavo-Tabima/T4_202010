@@ -15,11 +15,17 @@ public class View
 		public void printMenu()
 		{
 			System.out.println("1. Crear Arreglo Dinamico de Strings");
-			System.out.println("2. Agregar String");
-			System.out.println("3. Buscar String");
-			System.out.println("4. Eliminar String");
-			System.out.println("5. Imprimir el Arreglo");
-			System.out.println("6. Exit");
+			System.out.println("2. Agregar String a cola");
+			System.out.println("3. Agregar String a heap");
+
+			System.out.println("4. Buscar String en cola");
+			System.out.println("5. Buscar String en heap");
+
+			System.out.println("6. Eliminar String en cola");
+			System.out.println("7. Eliminar String en heap");
+
+			System.out.println("8. Imprimir el Arreglo");
+			System.out.println("9. Exit");
 			System.out.println("Dar el numero de opcion a resolver, luego oprimir tecla Return: (e.g., 1):");
 		}
 

@@ -68,8 +68,8 @@ public class MaxColaCP <T extends Comparable<T>>implements IMaxColaCP{
 		
 	}
 
-	public void enqueue(T elemento) {
-		Nodo nuevoNodo=new Nodo(elemento);
+	public void enqueue(T dato) {
+		Nodo nuevoNodo=new Nodo(dato);
 		nuevoNodo.setSiguiente(null);
 		if(inicio==null )
 		{
@@ -88,6 +88,20 @@ public class MaxColaCP <T extends Comparable<T>>implements IMaxColaCP{
 	}
 	
 	public void dequeue() {
+		
+	}
+
+
+
+	public Object buscar(String dato) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	public void eliminarCola() {
+		// TODO Auto-generated method stub
 		
 	}
 	

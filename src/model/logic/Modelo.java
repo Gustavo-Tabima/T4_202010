@@ -8,11 +8,13 @@ import model.data_structures.MaxHeapCP;
  * Definicion del modelo del mundo
  *
  */
-public class Modelo {
+public class Modelo<T> {
 	/**
 	 * Atributos del modelo del mundo
 	 */
-	MaxColaCP<Comparendo > datosCola = new MaxColaCP<Comparendo>();
+	
+	//constructor de Max cola requiere un int y un array
+	MaxColaCP<Comparendo > datosCola = new MaxColaCP<Comparendo>(0, null);
 	
 	MaxHeapCP<Comparendo > datosHeap = new MaxHeapCP<Comparendo>();
 	
@@ -47,7 +49,7 @@ public class Modelo {
 	 * @return numero de elementos presentes en el modelo
 	 */
 	
-	public int darTamañoCola(){
+	public int darTamanoCola(){
 		return  datosCola.darnumeroElementos();
 	}
 
@@ -55,9 +57,9 @@ public class Modelo {
 	 * Requerimiento de agregar dato
 	 * @param dato
 	 */
-	public void agregarCola(Comparendo dato)
+	public void agregarCola(T dato)
 	{	
-		datosCola.enqueue(dato);
+		datosCola.enqueue((Comparendo) dato);
 	}
 	
 	/**
@@ -65,9 +67,9 @@ public class Modelo {
 	 * @param dato
 	 */
 	
-	public void agregarHeap(Comparendo dato)
+	public void agregarHeap(T dato)
 	{	
-		datosHeap.agregarElemento(dato);
+		datosHeap.agregarElemento((Comparendo) dato);
 	}
 	/**
 	 * Requerimiento buscar dato
@@ -84,21 +86,26 @@ public class Modelo {
 	 * @param dato Dato a buscar
 	 * @return dato encontrado
 	 */
-	public String buscarCola(String dato)
+	public String buscarHeap(String dato)
 	{
 		return  datosHeap.buscar(dato).toString();
 	}
-	
-	
-	/**
-	 * Requerimiento eliminar dato
-	 * @param dato Dato a eliminar
-	 * @return dato eliminado
-	 */
-	public String eliminar(String dato)
-	{
-		return datos.eliminar(dato).toString();
+
+	public String eliminarCola(String dato) {
+		datosCola.eliminarCola();
+		return dato;
+		// TODO Auto-generated method stub
+		
 	}
+	
+	public String eliminarHeap(String dato) {
+		datosHeap.eliminarHeap();
+
+		return dato;
+	}
+	
+	
+	
 
 
 }

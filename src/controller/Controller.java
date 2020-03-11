@@ -40,21 +40,30 @@ public class Controller {
 				    int capacidad = lector.nextInt();
 				    modelo = new Modelo(capacidad); 
 				    view.printMessage("Arreglo Dinamico creado");
-				    view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
+				    view.printMessage("Numero actual de elementos cola " + modelo.darTamanoHeap() + "\n---------");		
+				    view.printMessage("Numero actual de elementos heap " + modelo.darTamanoCola() + "\n---------");						
+
 					break;
 
 				case 2:
 					view.printMessage("--------- \nDar cadena (simple) a ingresar: ");
 					dato = lector.next();
-					modelo.agregar(dato);
+					modelo.agregarCola(dato);
 					view.printMessage("Dato agregado");
-					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
+					view.printMessage("Numero actual de elementos " + modelo.darTamanoCola() + "\n---------");						
 					break;
-
+					
 				case 3:
+					view.printMessage("--------- \nDar cadena (simple) a ingresar: ");
+					dato = lector.next();
+					modelo.agregarHeap(dato);
+					view.printMessage("Dato agregado");
+					view.printMessage("Numero actual de elementos " + modelo.darTamanoCola() + "\n---------");						
+					break;
+				case 4:
 					view.printMessage("--------- \nDar cadena (simple) a buscar: ");
 					dato = lector.next();
-					respuesta = modelo.buscar(dato);
+					respuesta = modelo.buscarCola(dato);
 					if ( respuesta != null)
 					{
 						view.printMessage("Dato encontrado: "+ respuesta);
@@ -63,13 +72,28 @@ public class Controller {
 					{
 						view.printMessage("Dato NO encontrado");
 					}
-					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
+					view.printMessage("Numero actual de elementos " + modelo.darTamanoCola() + "\n---------");						
+					break;
+					
+				case 5:
+					view.printMessage("--------- \nDar cadena (simple) a buscar: ");
+					dato = lector.next();
+					respuesta = modelo.buscarCola(dato);
+					if ( respuesta != null)
+					{
+						view.printMessage("Dato encontrado: "+ respuesta);
+					}
+					else
+					{
+						view.printMessage("Dato NO encontrado");
+					}
+					view.printMessage("Numero actual de elementos " + modelo.darTamanoCola() + "\n---------");						
 					break;
 
-				case 4:
+				case 6:
 					view.printMessage("--------- \nDar cadena (simple) a eliminar: ");
 					dato = lector.next();
-					respuesta = modelo.eliminar(dato);
+					respuesta = modelo.eliminarCola(dato);
 					if ( respuesta != null)
 					{
 						view.printMessage("Dato eliminado "+ respuesta);
@@ -78,16 +102,32 @@ public class Controller {
 					{
 						view.printMessage("Dato NO eliminado");							
 					}
-					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
+					view.printMessage("Numero actual de elementos " + modelo.darTamanoCola() + "\n---------");						
+					break;
+					
+					
+				case 7:
+					view.printMessage("--------- \nDar cadena (simple) a eliminar: ");
+					dato = lector.next();
+					respuesta = modelo.eliminarHeap(dato);
+					if ( respuesta != null)
+					{
+						view.printMessage("Dato eliminado "+ respuesta);
+					}
+					else
+					{
+						view.printMessage("Dato NO eliminado");							
+					}
+					view.printMessage("Numero actual de elementos " + modelo.darTamanoCola() + "\n---------");						
 					break;
 
-				case 5: 
+				case 8: 
 					view.printMessage("--------- \nContenido del Arreglo: ");
 					view.printModelo(modelo);
-					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
+					view.printMessage("Numero actual de elementos " + modelo.darTamanoCola() + "\n---------");						
 					break;	
 					
-				case 6: 
+				case 9: 
 					view.printMessage("--------- \n Hasta pronto !! \n---------"); 
 					lector.close();
 					fin = true;

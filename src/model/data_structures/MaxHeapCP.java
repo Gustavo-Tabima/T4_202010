@@ -1,11 +1,16 @@
 package model.data_structures;
 
+import java.util.ArrayList;
+
 import model.logic.Comparendo;
 
 public class MaxHeapCP <T extends Comparable<T>> implements IMaxHeapCP <T>{
 
 	private int tamano;
+
+	private Nodo<T> inicio;
 	
+	private ArrayList<T> ArregloMuestra = new ArrayList<>();
 	
 	@Override
 	public int darnumeroElementos() {
@@ -14,26 +19,30 @@ public class MaxHeapCP <T extends Comparable<T>> implements IMaxHeapCP <T>{
 	}
 
 	@Override
-	public void agregarElemento(Comparable elemento) {
+	public void agregarElemento(T elemento) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Comparable sacarMax() {
+	public T sacarMax() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Comparable darMax() {
+	public T darMax() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public boolean esVacia() {
-		return tamano == 0;
+		boolean vacia = false;
+		if (tamano==0) {
+			vacia=true;
+		}
+		return vacia;
 	}
 
 	public  void sink(int e) {
@@ -63,5 +72,15 @@ public class MaxHeapCP <T extends Comparable<T>> implements IMaxHeapCP <T>{
 		
 	}
 	public void menor(int primero, int segundo) {
+	}
+
+	public Object buscar(String dato) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void eliminarHeap() {
+		// TODO Auto-generated method stub
+		
 	}
 }
