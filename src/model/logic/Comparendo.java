@@ -2,7 +2,7 @@ package model.logic;
 
 import java.util.Date;
 
-	public class Comparendo <K extends Comparable<K> > implements Comparable{
+	public class Comparendo  implements Comparable<Comparendo>{
 		private int objectId;
 		private Date fecha_hora;
 		private String des_infrac;
@@ -83,24 +83,28 @@ import java.util.Date;
 			return fecha_hora;
 		}
 
-		public int compareTo(Comparendo entrada) {
-			int r = 0;
-		if(this.darLatitud() < entrada.darLatitud()) {
-			r = -1;
-		}
+	
+
 		
-		else if(this.darLatitud() > entrada.darLatitud() ) {
-			r = 1;
-		}
-		
-		else if (this.darLatitud() == entrada.darLatitud()) {
-			r = 0;
-		}
-		return r;
-		}
+			@Override
+			public int compareTo(Comparendo entrada) {
+				int r = 0;
+				if(this.darLatitud() < entrada.darLatitud()) {
+					r = -1;
+				}
+				
+				else if(this.darLatitud() > entrada.darLatitud() ) {
+					r = 1;
+				}
+				
+				else if (this.darLatitud() == entrada.darLatitud()) {
+					r = 0;
+			}	
+				return r;
 
 		
 		}
+	}
 
 		
 

@@ -6,7 +6,7 @@ public class MaxHeapCP <T extends Comparable<T>> implements IMaxHeapCP <T>{
 
 	private int tamano;
 	
-	private ArregloDinamico<Comparendo> datos = new ArregloDinamico(1000);
+	
 	@Override
 	public int darnumeroElementos() {
 		

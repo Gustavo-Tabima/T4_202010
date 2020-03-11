@@ -8,19 +8,32 @@ public class MaxColaCP <T extends Comparable<T>>implements IMaxColaCP{
 
 	public int tamano;
 
-	public ArregloDinamico<T> datos;
-
+	private Nodo<T> inicio;
+	
+	private ArrayList<T> ArregloMuestra = new ArrayList<>();
 	//-----------------------------------
 	//---------Metodos------------------
 	//-----------------------------------
+	/**
+	 * 
+	 * @param N Tamaño de Muestra decidido por usuario
+	 * @param arregloEntrada arreglo de elementos
+	 */
 	
-	public MaxColaCP() {
-		datos = new ArregloDinamico<T>(100000);
+	
+	public MaxColaCP(int N, ArrayList<T> arregloEntrada) {
+		
+		int contador = 0;
+		while(contador<N){
+			int random = (int) Math.random()*10;
+			ArregloMuestra.add(arregloEntrada.get(random));
+		contador++;
+		}
 	}
 	
 	ArrayList<T> elementosSinCola = new ArrayList<T>();
 	public int darnumeroElementos() {
-		// TODO Auto-generated method stub
+		
 		return tamano;
 	}
 
@@ -28,6 +41,8 @@ public class MaxColaCP <T extends Comparable<T>>implements IMaxColaCP{
 
 	@Override
 	public Comparable<T> sacarMax() {
+		
+		
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -54,7 +69,22 @@ public class MaxColaCP <T extends Comparable<T>>implements IMaxColaCP{
 	}
 
 	public void enqueue(T elemento) {
+		Nodo nuevoNodo=new Nodo(elemento);
+		nuevoNodo.setSiguiente(null);
+		if(inicio==null )
+		{
+			inicio=nuevoNodo;
+			
+			tamano++;
 
+		}
+		Nodo iterador = inicio;
+		while(iterador!=null){
+		if(iterador.darSiguente() == null){
+			iterador.setSiguiente(nuevoNodo);
+		}
+			iterador= iterador.darSiguente();
+	}
 	}
 	
 	public void dequeue() {

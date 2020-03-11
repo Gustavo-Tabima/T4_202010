@@ -1,7 +1,8 @@
 package model.logic;
 
-import model.data_structures.ArregloDinamico;
-import model.data_structures.IArregloDinamico;
+
+import model.data_structures.MaxColaCP;
+import model.data_structures.MaxHeapCP;
 
 /**
  * Definicion del modelo del mundo
@@ -11,14 +12,16 @@ public class Modelo {
 	/**
 	 * Atributos del modelo del mundo
 	 */
-	private IArregloDinamico datos;
+	MaxColaCP<Comparendo > datosCola = new MaxColaCP<Comparendo>();
+	
+	MaxHeapCP<Comparendo > datosHeap = new MaxHeapCP<Comparendo>();
 	
 	/**
 	 * Constructor del modelo del mundo con capacidad predefinida
 	 */
 	public Modelo()
 	{
-		datos = new ArregloDinamico(7);
+	
 	}
 	
 	/**
@@ -27,25 +30,53 @@ public class Modelo {
 	 */
 	public Modelo(int capacidad)
 	{
-		datos = new ArregloDinamico(capacidad);
+		
 	}
 	
 	/**
 	 * Servicio de consulta de numero de elementos presentes en el modelo 
 	 * @return numero de elementos presentes en el modelo
 	 */
-	public int darTamano()
+	public int darTamanoHeap()
 	{
-		return datos.darTamano();
+	return datosHeap.darnumeroElementos();
+	}
+	
+	/**
+	 * Servicio de consulta de numero de elementos presentes en el modelo 
+	 * @return numero de elementos presentes en el modelo
+	 */
+	
+	public int darTamañoCola(){
+		return  datosCola.darnumeroElementos();
 	}
 
 	/**
 	 * Requerimiento de agregar dato
 	 * @param dato
 	 */
-	public void agregar(String dato)
+	public void agregarCola(Comparendo dato)
 	{	
-		datos.agregar(dato);
+		datosCola.enqueue(dato);
+	}
+	
+	/**
+	 * Requerimiento de agregar dato
+	 * @param dato
+	 */
+	
+	public void agregarHeap(Comparendo dato)
+	{	
+		datosHeap.agregarElemento(dato);
+	}
+	/**
+	 * Requerimiento buscar dato
+	 * @param dato Dato a buscar
+	 * @return dato encontrado
+	 */
+	public String buscarCola(String dato)
+	{
+		return  datosCola.buscar(dato).toString();
 	}
 	
 	/**
@@ -53,10 +84,11 @@ public class Modelo {
 	 * @param dato Dato a buscar
 	 * @return dato encontrado
 	 */
-	public String buscar(String dato)
+	public String buscarCola(String dato)
 	{
-		return datos.buscar(dato);
+		return  datosHeap.buscar(dato).toString();
 	}
+	
 	
 	/**
 	 * Requerimiento eliminar dato
@@ -65,7 +97,7 @@ public class Modelo {
 	 */
 	public String eliminar(String dato)
 	{
-		return datos.eliminar(dato);
+		return datos.eliminar(dato).toString();
 	}
 
 
