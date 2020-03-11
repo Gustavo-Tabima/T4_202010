@@ -1,5 +1,5 @@
 # esqueleto_T0_202010
-Esqueleto base para la realización del Taller 0
+Esqueleto base para la realización del Taller 4
 
 Gustavo Tabima - 201914586
 
