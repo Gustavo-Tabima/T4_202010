@@ -2,15 +2,15 @@ package model.data_structures;
 
 import java.util.Comparator;
 
-public class MaxHeapCP<K extends Comparable<K>> implements IMaxHeapCP<K> 
+public class MaxHeapCP<T extends Comparable<T>> implements IMaxHeapCP<T> 
 {
 	private int tamano;
-	private K[] arreglo;
+	private T[] arreglo;
 
 	public MaxHeapCP(int capacidad)
 	{
 		tamano = 0;
-		arreglo = (K[]) new Comparable[capacidad + 1];
+		arreglo = (T[]) new Comparable[capacidad + 1];
 	}
 
 	public MaxHeapCP()
@@ -18,12 +18,13 @@ public class MaxHeapCP<K extends Comparable<K>> implements IMaxHeapCP<K>
 		this(1);
 	}
 
-	public MaxHeapCP(K[] llave)
+	public MaxHeapCP(T[] llave)
 	{
 		tamano = llave.length;
-		arreglo = (K[]) new Comparable[llave.length + 1];
+		arreglo = (T[]) new Comparable[llave.length + 1];
 		for (int i = 0; i < tamano; i++)
 		{
+			
 			arreglo[i+1] = llave[i];
 		}
 		for (int k = tamano/2; k >= 1; k--)
@@ -39,7 +40,7 @@ public class MaxHeapCP<K extends Comparable<K>> implements IMaxHeapCP<K>
 	}
 
 	@Override
-	public void agregarElemento(K llave)
+	public void agregarElemento(T llave)
 	{
 		if (tamano == arreglo.length - 1)
 		{
@@ -59,7 +60,7 @@ public class MaxHeapCP<K extends Comparable<K>> implements IMaxHeapCP<K>
 
 
 	@Override
-	public K darMax() throws noExisteObjetoException
+	public T darMax() throws noExisteObjetoException
 	{
 		if (estaVacia())
 		{
@@ -71,7 +72,7 @@ public class MaxHeapCP<K extends Comparable<K>> implements IMaxHeapCP<K>
 
 
 	@Override
-	public K sacarMax() throws noExisteObjetoException 
+	public T sacarMax() throws noExisteObjetoException 
 	{ 
 		if (estaVacia()) 
 		{
@@ -79,10 +80,10 @@ public class MaxHeapCP<K extends Comparable<K>> implements IMaxHeapCP<K>
 		}
 		if(tamano == 1)
 		{
-			K max = arreglo[tamano--];
+			T max = arreglo[tamano--];
 			arreglo[1] = null;
 		}
-		K max = arreglo[1];
+		T max = arreglo[1];
 		swap(1, tamano--);
 		sink(1);
 		arreglo[tamano+1] = null;
@@ -130,14 +131,14 @@ public class MaxHeapCP<K extends Comparable<K>> implements IMaxHeapCP<K>
 
 	private void swap(int i, int j)
 	{
-		K swap = arreglo[i];
+		T swap = arreglo[i];
 		arreglo[i] = arreglo[j];
 		arreglo[j] = swap;
 	}
 
 	private void cambiarTamano(int capacidad) 
 	{
-		K[] tamNuevo = (K[]) new Comparable[capacidad];
+		T[] tamNuevo = (T[]) new Comparable[capacidad];
 		for (int i = 1; i <= tamano; i++)
 		{
 			tamNuevo[i] = arreglo[i];
