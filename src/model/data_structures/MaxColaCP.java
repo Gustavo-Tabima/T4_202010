@@ -7,9 +7,9 @@ import model.logic.*;
 public class MaxColaCP <T extends Comparable<T>>implements IMaxColaCP{
 
 	public int tamano;
+	private Nodo<T> primero;
+	private Nodo<T> ultimo;
 
-	private Nodo<T> inicio;
-	
 	private ArrayList<T> ArregloMuestra = new ArrayList<>();
 	//-----------------------------------
 	//---------Metodos------------------
@@ -19,92 +19,94 @@ public class MaxColaCP <T extends Comparable<T>>implements IMaxColaCP{
 	 * @param N Tamaño de Muestra decidido por usuario
 	 * @param arregloEntrada arreglo de elementos
 	 */
-	
-	
-	public MaxColaCP(int N, ArrayList<T> arregloEntrada) {
-		
-		int contador = 0;
-		while(contador<N){
-			int random = (int) Math.random()*10;
-			ArregloMuestra.add(arregloEntrada.get(random));
-		contador++;
-		}
+
+
+	public MaxColaCP() {
+
+		tamano= 0;
+		primero = null;
+		ultimo = null;
+		// TODO Auto-generated constructor stub
 	}
-	
-	ArrayList<T> elementosSinCola = new ArrayList<T>();
+
+	@Override
 	public int darnumeroElementos() {
-		
 		return tamano;
 	}
 
-
-
 	@Override
-	public Comparable<T> sacarMax() {
-		
-		
-		// TODO Auto-generated method stub
-		return null;
+	public T darMax() throws noExisteObjetoException
+	{
+		if(tamano == 0)
+		{
+			throw new noExisteObjetoException();
+		}
+		Nodo<T> mayor = primero;
+		Nodo<T> actual = primero;
+		while(actual!=null)
+		{
+			if(actual.darDato().compareTo(mayor.darDato()) > 0 )
+			{
+				mayor = actual;
+			}
+			actual = actual.darSiguente();
+		}
+
+
+		return mayor.darDato();
 	}
 
 	@Override
-	public Comparable<T> darMax() {
-		// TODO Auto-generated method stub
-		return null;
+	public T sacarMax() throws noExisteObjetoException
+	{
+		if(tamano == 0)
+		{
+			throw new noExisteObjetoException();
+		}
+
+		else {
+			T x = primero.darDato();
+			primero = primero.darSiguente();
+			tamano--;
+
+			return x;
+		}
+
+
 	}
 
 	@Override
 	public boolean esVacia() {
-		boolean r = false;
-		if(tamano == 0){
-			r = true;
+		// TODO Auto-generated method stub
+		if (tamano == 0) {
+			return true;
 		}
-		return r;
+		return false ;
 	}
+
+
+
 
 	@Override
 	public void agregarElemento(Comparable elemento) {
 		// TODO Auto-generated method stub
-		
-	}
-
-	public void enqueue(T dato) {
-		Nodo nuevoNodo=new Nodo(dato);
-		nuevoNodo.setSiguiente(null);
-		if(inicio==null )
+		Nodo<T> nuevo = new Nodo<T>((T) elemento);
+		if(tamano == 0)
 		{
-			inicio=nuevoNodo;
-			
+			primero = nuevo;
+			tamano++;
+		}
+		else
+		{
+			ultimo.setSiguiente(nuevo);
+			ultimo = nuevo;
 			tamano++;
 
 		}
-		Nodo iterador = inicio;
-		while(iterador!=null){
-		if(iterador.darSiguente() == null){
-			iterador.setSiguiente(nuevoNodo);
-		}
-			iterador= iterador.darSiguente();
+
+
+
+
+
 	}
-	}
-	
-	public void dequeue() {
-		
-	}
-
-
-
-	public Object buscar(String dato) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
-	public void eliminarCola() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
-
 }

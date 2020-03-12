@@ -5,10 +5,8 @@ public class Nodo <K>{
 	Nodo<K> sig;
 	
 	private K datoActual;
-	
 	public Nodo(K dato){
 		datoActual = dato;
-		
 		sig = null;
 	}
 	public K darDato() {
@@ -32,6 +30,8 @@ public class Nodo <K>{
 	{
 		datoActual = dato;
 	}
+	
+	
 	
 	
 }

@@ -8,9 +8,9 @@ public interface IMaxHeapCP <T extends Comparable<T>>{
 	
 	public void agregarElemento(T elemento);
 	
-	public T sacarMax();
+	public T sacarMax() throws noExisteObjetoException;
 	
-	public T darMax();
+	public T darMax() throws noExisteObjetoException;
 	
-	public boolean esVacia();
+	public boolean estaVacia();
 }
