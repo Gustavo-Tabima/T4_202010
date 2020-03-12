@@ -83,7 +83,7 @@ public class MaxHeapCP<K extends Comparable<K>> implements IMaxHeapCP<K>
 			arreglo[1] = null;
 		}
 		K max = arreglo[1];
-		intercambiar(1, tamano--);
+		swap(1, tamano--);
 		sink(1);
 		arreglo[tamano+1] = null;
 
@@ -100,7 +100,7 @@ public class MaxHeapCP<K extends Comparable<K>> implements IMaxHeapCP<K>
 	{
 		while (k > 1 && esMenor(k/2, k)) 
 		{
-			intercambiar(k, k/2);
+			swap(k, k/2);
 			k = k/2;
 		}
 	}
@@ -118,7 +118,7 @@ public class MaxHeapCP<K extends Comparable<K>> implements IMaxHeapCP<K>
 			{
 				break;
 			}
-			intercambiar(k, j);
+			swap(k, j);
 			k = j;
 		}
 	}
@@ -128,7 +128,7 @@ public class MaxHeapCP<K extends Comparable<K>> implements IMaxHeapCP<K>
 		return (arreglo[i]).compareTo(arreglo[j]) < 0;
 	}
 
-	private void intercambiar(int i, int j)
+	private void swap(int i, int j)
 	{
 		K swap = arreglo[i];
 		arreglo[i] = arreglo[j];
