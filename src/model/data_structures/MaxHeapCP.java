@@ -45,28 +45,28 @@ public class MaxHeapCP <T extends Comparable<T>> implements IMaxHeapCP <T>{
 		return vacia;
 	}
 
-	public  void sink(int e) {
-		while (2*e <= N) 
-		{      
-			int j = 2*e; 
-			if (j < N && menor(j, j+1)) 
-				j++;
-			if (!menor(k, j))
-				break;
-			cambiar(e, j);  
-			e = j;  
-		}
-	}
-	
-	public void swim(int e) {
-		
-	
-	while(e > 1 && menor(e/2, e) ) {
-		cambiar(e/2,e);
-		e = e/2;
-	}
-
-}
+//	public  void sink(int e) {
+//		while (2*e <= N) 
+//		{      
+//			int j = 2*e; 
+//			if (j < N && menor(j, j+1)) 
+//				j++;
+//			if (!menor(k, j))
+//				break;
+//			cambiar(e, j);  
+//			e = j;  
+//		}
+//	}
+//	
+//	public void swim(int e) {
+//		
+//	
+//	while(e > 1 && menor(e/2, e) ) {
+//		cambiar(e/2,e);
+//		e = e/2;
+//	}
+//
+//}
 	
 	public void cambiar() {
 		

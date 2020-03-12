@@ -22,16 +22,31 @@ public class MaxColaCP <T extends Comparable<T>>implements IMaxColaCP{
 	
 	
 	public MaxColaCP(int N, ArrayList<T> arregloEntrada) {
-		
+		inicio = new Nodo<T>(arregloEntrada.get(0));
 		int contador = 0;
 		while(contador<N){
-			int random = (int) Math.random()*10;
-			ArregloMuestra.add(arregloEntrada.get(random));
+			int random = (int) Math.random()*100;
+			
+			if(ArregloMuestra.get(random) != null && random < arregloEntrada.size()) {
+				ArregloMuestra.add(arregloEntrada.get(random));
+			}
 		contador++;
 		}
+		for (int i = 0; i < ArregloMuestra.size(); i++) {
+			T primerObjeto = ArregloMuestra.get(i);
+			for(int j = i +1; j< ArregloMuestra.size();j++) {
+				T segundoObjeto = ArregloMuestra.get(j);
+				
+				if(primerObjeto.compareTo(segundoObjeto) == 1) {
+					queue(primerObjeto);
+				}
+			
+			}
+		}
+		sacarTodo();
 	}
 	
-	ArrayList<T> elementosSinCola = new ArrayList<T>();
+
 	public int darnumeroElementos() {
 		
 		return tamano;
@@ -42,9 +57,7 @@ public class MaxColaCP <T extends Comparable<T>>implements IMaxColaCP{
 	@Override
 	public Comparable<T> sacarMax() {
 		
-		
-		// TODO Auto-generated method stub
-		return null;
+	return inicio.darDato();
 	}
 
 	@Override
@@ -68,7 +81,7 @@ public class MaxColaCP <T extends Comparable<T>>implements IMaxColaCP{
 		
 	}
 
-	public void enqueue(T dato) {
+	public void queue(T dato) {
 		Nodo nuevoNodo=new Nodo(dato);
 		nuevoNodo.setSiguiente(null);
 		if(inicio==null )
@@ -76,8 +89,9 @@ public class MaxColaCP <T extends Comparable<T>>implements IMaxColaCP{
 			inicio=nuevoNodo;
 			
 			tamano++;
-
-		}
+			
+		}else
+		{
 		Nodo iterador = inicio;
 		while(iterador!=null){
 		if(iterador.darSiguente() == null){
@@ -85,9 +99,10 @@ public class MaxColaCP <T extends Comparable<T>>implements IMaxColaCP{
 		}
 			iterador= iterador.darSiguente();
 	}
+		}
 	}
 	
-	public void dequeue() {
+	public void dequeue(T dato) {
 		
 	}
 
@@ -100,11 +115,13 @@ public class MaxColaCP <T extends Comparable<T>>implements IMaxColaCP{
 
 
 
-	public void eliminarCola() {
-		// TODO Auto-generated method stub
-		
+
+public void sacarTodo()	{
+	Nodo<T> iterador = inicio; 
+	while(iterador!= null) {
+		System.out.println(iterador.darDato().toString());
+		iterador = iterador.darSiguente();
 	}
-	
-	
+}
 
 }

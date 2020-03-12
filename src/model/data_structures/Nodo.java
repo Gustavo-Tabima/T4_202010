@@ -15,12 +15,12 @@ public class Nodo <K>{
 		return datoActual;
 	}
 
-	public Nodo darSiguente() {
+	public Nodo<K> darSiguente() {
 		return sig;
 	}
 	
 	
-	public void setSiguiente(Nodo psiguiente) {
+	public void setSiguiente(Nodo<K> psiguiente) {
 		
 		sig=psiguiente;
 		

@@ -20,7 +20,7 @@ public class Controller {
 	public Controller ()
 	{
 		view = new View();
-		modelo = new Modelo();
+	
 	}
 		
 	public void run() 
@@ -36,11 +36,10 @@ public class Controller {
 			int option = lector.nextInt();
 			switch(option){
 				case 1:
-					view.printMessage("--------- \nCrear Arreglo \nDar capacidad inicial del arreglo: ");
-				    int capacidad = lector.nextInt();
-				    modelo = new Modelo(capacidad); 
-				    view.printMessage("Arreglo Dinamico creado");
-				    view.printMessage("Numero actual de elementos cola " + modelo.darTamanoHeap() + "\n---------");		
+					view.printMessage("--------- \nCrear Cola de prioridad \nPorfavor ingrese el tamaño de la muestra ");
+				    int Muestra = lector.nextInt();
+				    modelo = new Modelo(Muestra,"cola"); 
+				    view.printMessage("Cola de prioridad creado");
 				    view.printMessage("Numero actual de elementos heap " + modelo.darTamanoCola() + "\n---------");						
 
 					break;
@@ -48,7 +47,7 @@ public class Controller {
 				case 2:
 					view.printMessage("--------- \nDar cadena (simple) a ingresar: ");
 					dato = lector.next();
-					modelo.agregarCola(dato);
+		
 					view.printMessage("Dato agregado");
 					view.printMessage("Numero actual de elementos " + modelo.darTamanoCola() + "\n---------");						
 					break;
@@ -90,21 +89,21 @@ public class Controller {
 					view.printMessage("Numero actual de elementos " + modelo.darTamanoCola() + "\n---------");						
 					break;
 
-				case 6:
-					view.printMessage("--------- \nDar cadena (simple) a eliminar: ");
-					dato = lector.next();
-					respuesta = modelo.eliminarCola(dato);
-					if ( respuesta != null)
-					{
-						view.printMessage("Dato eliminado "+ respuesta);
-					}
-					else
-					{
-						view.printMessage("Dato NO eliminado");							
-					}
-					view.printMessage("Numero actual de elementos " + modelo.darTamanoCola() + "\n---------");						
-					break;
-					
+//				case 6:
+//					view.printMessage("--------- \nDar cadena (simple) a eliminar: ");
+//					dato = lector.next();
+//					respuesta = modelo.eliminarCola(dato);
+//					if ( respuesta != null)
+//					{
+//						view.printMessage("Dato eliminado "+ respuesta);
+//					}
+//					else
+//					{
+//						view.printMessage("Dato NO eliminado");							
+//					}
+//					view.printMessage("Numero actual de elementos " + modelo.darTamanoCola() + "\n---------");						
+//					break;
+//					
 					
 				case 7:
 					view.printMessage("--------- \nDar cadena (simple) a eliminar: ");
