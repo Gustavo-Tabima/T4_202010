@@ -53,7 +53,12 @@ public class Controller {
 
 				break;
 
-			case 9: 
+			case 2: 
+				view.printMessage("--------- \n Hasta pronto !! \n---------"); 
+				lector.close();
+				fin = true;
+				break;	
+			case 3: 
 				view.printMessage("--------- \n Hasta pronto !! \n---------"); 
 				lector.close();
 				fin = true;
