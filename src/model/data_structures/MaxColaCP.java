@@ -26,7 +26,6 @@ public class MaxColaCP <T extends Comparable<T>>implements IMaxColaCP{
 		tamano= 0;
 		primero = null;
 		ultimo = null;
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -43,6 +42,7 @@ public class MaxColaCP <T extends Comparable<T>>implements IMaxColaCP{
 		}
 		Nodo<T> mayor = primero;
 		Nodo<T> actual = primero;
+		
 		while(actual!=null)
 		{
 			if(actual.darDato().compareTo(mayor.darDato()) > 0 )
