@@ -186,6 +186,41 @@ public class Modelo<T> {
 		datosHeap.agregarElemento((Comparendo) dato);
 	}
 
+	public String NComparendoConMayorLatitudNorte(int Num,String[] lista) throws noExisteObjetoException{
+
+		MaxColaCP<Comparendo> respuesta = new MaxColaCP<>();
+
+		boolean acabo = false;
+
+		for (int i = 0; i < datosCola.darnumeroElementos()-1 && acabo!=true; i++) {
+
+			Comparendo actual = datosCola.sacarMax();
+			boolean pertenece=false;
+			for (String x: lista) {
+				if (x.equalsIgnoreCase(actual.darClaseVehi())){
+					if (pertenece) {
+						respuesta.agregarElemento(actual);
+					}
+					if (respuesta.darnumeroElementos()==Num) {
+						acabo=true;
+					}
+				}
+
+			}
+			
+
+
+
+
+
+
+
+		}
+
+		return respuesta.toString();
+
+
+	}
 
 
 

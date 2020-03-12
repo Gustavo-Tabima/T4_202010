@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import model.data_structures.noExisteObjetoException;
@@ -54,9 +55,12 @@ public class Controller {
 				break;
 
 			case 2: 
-				view.printMessage("--------- \n Hasta pronto !! \n---------"); 
-				lector.close();
-				fin = true;
+				view.printMessage("--------- \n req 1 !! \n---------"); 
+				view.printMessage("dar Numero");
+				tamano=lector.nextInt();
+				view.printMessage("dar tipo de vehiculo");
+
+				view.printMessage(modelo.NComparendoConMayorLatitudNorte(tamano, datoa));
 				break;	
 			case 3: 
 				view.printMessage("--------- \n Hasta pronto !! \n---------"); 
